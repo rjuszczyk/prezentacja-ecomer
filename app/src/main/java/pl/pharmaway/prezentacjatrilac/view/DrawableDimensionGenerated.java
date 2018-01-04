@@ -65,8 +65,6 @@ public class DrawableDimensionGenerated {
                 return new int[]{47, 79};
             case R.drawable.pacjent:
                 return new int[]{277, 101};
-            case R.drawable.packshot:
-                return new int[]{462, 328};
             case R.drawable.page1:
                 return new int[]{1920, 1200};
             case R.drawable.page2:
