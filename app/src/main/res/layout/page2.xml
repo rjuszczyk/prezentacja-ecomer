@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pl.pharmaway.prezentacjatrilac.view.FixedScaledLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:fixedWidth="1920dp"
+    app:fixedHeight="1200dp"
+    >
+
+    <pl.pharmaway.prezentacjatrilac.view.FixedImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:imageReference="@drawable/page2"
+        />
+
+    <LinearLayout
+        android:layout_width="500dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="left"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="50dp"
+        >
+        <pl.pharmaway.prezentacjatrilac.view.FixedImageView
+            android:id="@+id/sklad"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+        <pl.pharmaway.prezentacjatrilac.view.FixedImageView
+            android:id="@+id/skutecznosc"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+        <pl.pharmaway.prezentacjatrilac.view.FixedImageView
+            android:id="@+id/unikatowosc"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+        <pl.pharmaway.prezentacjatrilac.view.FixedImageView
+            android:id="@+id/pacjent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+
+    <include
+        layout="@layout/footer" />
+</pl.pharmaway.prezentacjatrilac.view.FixedScaledLayout>

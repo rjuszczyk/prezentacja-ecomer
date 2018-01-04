@@ -1,0 +1,17 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <pl.pharmaway.prezentacjatrilac.view.FixedImageView
+        android:id="@+id/button_prev"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="left|center_vertical"
+        />
+
+    <pl.pharmaway.prezentacjatrilac.view.FixedImageView
+        android:id="@+id/button_next"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="right|center_vertical"
+        />
+
+</merge>
