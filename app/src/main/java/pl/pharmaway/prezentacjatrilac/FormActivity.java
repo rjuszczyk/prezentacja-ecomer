@@ -76,7 +76,7 @@ implements ChooseAgentDialog.AgentDialogListener, ChooseLekarzDialog.LekarzDialo
     }
 
     void updateNext() {
-        next.setEnabled(TextUtils.isEmpty(this.lekarz.getText()));
+        next.setEnabled(!TextUtils.isEmpty(this.lekarz.getText()));
     }
 
     @Override
