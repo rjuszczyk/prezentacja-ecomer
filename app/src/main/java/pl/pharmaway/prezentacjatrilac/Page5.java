@@ -22,8 +22,8 @@ public class Page5 extends FooterFragment {
                     );
 
             animateIn(500, inAnimator,
-                    title1,
-                    title2
+                    title2,
+                    title1
             );
         } else {
             setVisible(
