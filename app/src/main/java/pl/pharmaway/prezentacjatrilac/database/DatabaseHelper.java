@@ -81,7 +81,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cupboard()
                 .withDatabase(db)
                 .query(NotSendDataRow.class)
-                .lisgt();
+                .list();
     }
 
     public static int getNotSendCount(Context context) {

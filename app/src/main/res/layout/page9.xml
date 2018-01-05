@@ -38,6 +38,12 @@
         app:imageReference="@drawable/page9_3"
         android:translationX="0dp"
         android:translationY="-230dp" />
-
+    <pl.pharmaway.prezentacjatrilac.view.FixedImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:imageReference="@drawable/next"
+        android:layout_gravity="right|center_vertical"
+        android:layout_marginRight="50dp"
+        />
     <include layout="@layout/footer" />
 </pl.pharmaway.prezentacjatrilac.view.FixedScaledLayout>
