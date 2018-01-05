@@ -1,6 +1,7 @@
 package pl.pharmaway.prezentacjatrilac;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,9 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
+import pl.pharmaway.prezentacjatrilac.database.DatabaseHelper;
+import pl.pharmaway.prezentacjatrilac.database.NotSendDataRow;
+import pl.pharmaway.prezentacjatrilac.mvp.fake.FormDataRepositoryImpl;
 import pl.pharmaway.prezentacjatrilac.view.ChooseAgentDialog;
 import pl.pharmaway.prezentacjatrilac.view.ChooseLekarzDialog;
 
@@ -16,10 +20,16 @@ implements ChooseAgentDialog.AgentDialogListener, ChooseLekarzDialog.LekarzDialo
     TextView agent;
     TextView lekarz;
     View next;
+    private FormDataRepositoryImpl repository;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.form);
+        DatabaseHelper databaseHelper = new DatabaseHelper(this);
+        SQLiteDatabase database = databaseHelper.getWritableDatabase();
+        repository = new FormDataRepositoryImpl(this, database);
+
         agent = findViewById(R.id.agent);
         lekarz = findViewById(R.id.lekarz);
         next = findViewById(R.id.next);
@@ -51,7 +61,17 @@ implements ChooseAgentDialog.AgentDialogListener, ChooseLekarzDialog.LekarzDialo
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FormActivity.this, Page1.class);
+
+                NotSendDataRow notSendDataRow = new NotSendDataRow();
+
+                notSendDataRow.agent = agent.getText().toString();
+                notSendDataRow.lekarz = lekarz.getText().toString();
+                notSendDataRow.appId = Constants.APP_ID;
+                notSendDataRow.lekarzType = Constants.LEKARZ_TYPE;
+
+                repository.storeNotSendForm(notSendDataRow);
+
+                Intent intent = new Intent(FormActivity.this, LoadingActivity.class);
                 startActivity(intent);
             }
         });
