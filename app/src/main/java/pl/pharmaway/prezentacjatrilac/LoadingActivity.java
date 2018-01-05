@@ -1,15 +1,26 @@
 package pl.pharmaway.prezentacjatrilac;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
+import android.provider.SyncStateContract;
+import android.support.v4.content.SharedPreferencesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
+import pl.pharmaway.prezentacjatrilac.database.DatabaseHelper;
 import pl.pharmaway.prezentacjatrilac.mvp.LoadingPresenter;
 import pl.pharmaway.prezentacjatrilac.mvp.LoadingView;
 import pl.pharmaway.prezentacjatrilac.mvp.fake.FormDataRepositoryImpl;
 import pl.pharmaway.prezentacjatrilac.mvp.fake.LoadingModelImpl;
 import pl.pharmaway.prezentacjatrilac.mvp.fake.SendFormImpl;
+import pl.pharmaway.prezentacjatrilac.network.PrezentacjaApi;
+import retrofit.GsonConverterFactory;
+import retrofit.Retrofit;
 
 public class LoadingActivity extends FooterActivity implements LoadingView{
 
@@ -22,8 +33,18 @@ public class LoadingActivity extends FooterActivity implements LoadingView{
 
         progressMsg = findViewById(R.id.progressMsg);
 
+
+        SharedPreferences sharedPreferences = getSharedPreferences("appPrefs", Context.MODE_PRIVATE);
+        DatabaseHelper databaseHelper = new DatabaseHelper(this);
+        SQLiteDatabase database = databaseHelper.getWritableDatabase();
+        Gson gson = new Gson();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Constants.API)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+        PrezentacjaApi prezentacjaApi = retrofit.create(PrezentacjaApi.class);
         loadingPresenter = new LoadingPresenter(
-                new LoadingModelImpl(),
+                new LoadingModelImpl(database, prezentacjaApi, sharedPreferences),
                 this,
                 new SendFormImpl(),
                 new FormDataRepositoryImpl()

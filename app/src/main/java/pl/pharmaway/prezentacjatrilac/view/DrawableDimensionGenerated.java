@@ -7,6 +7,8 @@ public class DrawableDimensionGenerated {
         switch (image) {
             case R.drawable.babel1:
                 return new int[]{106, 106};
+            case R.drawable.form:
+                return new int[]{1920, 1200};
             case R.drawable.babel2:
                 return new int[]{83, 83};
             case R.drawable.back:

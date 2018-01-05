@@ -88,7 +88,7 @@ public abstract class FooterFragment extends Fragment {
                     .addToBackStack("pages")
                     .commit();
         } else {
-            Intent intent = new Intent(getActivity(), Page1.class);
+            Intent intent = new Intent(getActivity(), FormActivity.class);
             getActivity().startActivity(intent);
         }
     }

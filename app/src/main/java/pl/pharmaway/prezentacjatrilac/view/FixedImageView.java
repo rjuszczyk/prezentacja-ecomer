@@ -27,7 +27,6 @@ public class FixedImageView extends android.support.v7.widget.AppCompatImageView
     private void handleArgs(AttributeSet attrs) {
         TypedArray typedArray = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.FixedImageView, 0, 0);
 
-
         imageReference = (int)typedArray.getResourceId(R.styleable.FixedImageView_imageReference, 0);
         setImageResource(imageReference);
 
