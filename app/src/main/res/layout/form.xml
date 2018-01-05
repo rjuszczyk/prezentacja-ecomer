@@ -38,7 +38,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:textColor="@android:color/white"
-        android:hint="PRZEDSTAWICIEL MEDYCZNY"
+        android:hint="IMIĘ I NAZWISKO LEKARZA"
         android:textColorHint="#EEFFFFFF"
         android:layout_marginTop="633dp"
         android:layout_marginLeft="565dp"
