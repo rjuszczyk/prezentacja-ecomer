@@ -28,7 +28,9 @@ public class SendFormImpl implements SendForm {
                 form.createDate,
                 form.lekarzType,
                 form.agent,
-                form.lekarz
+                form.lekarz,
+                form.timeInApp,
+                form.firstChoice
         );
 
         final Cancelable cancelable = new Cancelable() {
@@ -51,6 +53,11 @@ public class SendFormImpl implements SendForm {
             @Override
             public void onResponse(Response<SendResponse> response) {
                 if (!cancelable.isCanceled()) {
+                    if(response.body()==null){
+                        onFailure(null);
+                        return;
+                    }
+
                     if(response.body().isSuccess()) {
                         callback.onSuccess();
                     } else {

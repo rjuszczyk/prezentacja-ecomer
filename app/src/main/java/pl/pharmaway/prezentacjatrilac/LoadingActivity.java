@@ -19,7 +19,7 @@ import pl.pharmaway.prezentacjatrilac.network.PrezentacjaApi;
 import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
 
-public class LoadingActivity extends FooterActivity implements LoadingView{
+public class LoadingActivity extends FooterActivity implements LoadingView {
 
     LoadingPresenter loadingPresenter;
     private TextView progressMsg;
@@ -30,6 +30,10 @@ public class LoadingActivity extends FooterActivity implements LoadingView{
 
         progressMsg = findViewById(R.id.progressMsg);
 
+        FirstChoice firstChoice = new FirstChoice(getSharedPreferences("appPrefs", Context.MODE_PRIVATE));
+        firstChoice.reset();
+        TimeSpendInApp timeSpendInApp = new TimeSpendInApp(getSharedPreferences("appPrefs", Context.MODE_PRIVATE));
+        timeSpendInApp.reset();
 
         SharedPreferences sharedPreferences = getSharedPreferences("appPrefs", Context.MODE_PRIVATE);
         DatabaseHelper databaseHelper = new DatabaseHelper(this);

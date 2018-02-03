@@ -21,6 +21,8 @@ public interface PrezentacjaApi {
             @Field("createDate") String createDate,
             @Field("lekarzType") int lekarzType,
             @Field("agent") String agent,
-            @Field("lekarz") String lekarz
+            @Field("lekarz") String lekarz,
+            @Field("timeInApp") String timeInApp,
+            @Field("firstChoice") String firstChoice
     );
 }

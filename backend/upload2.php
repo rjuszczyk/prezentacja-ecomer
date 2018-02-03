@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $servername = "sql.pharmawayjn.nazwa.pl";
 $username = "pharmawayjn_17";
 $password = "slubowaNIE_1";
@@ -17,10 +17,10 @@ $row = 1;
 
 $conn->query("SET NAMES 'utf8'");
 
-$conn->query("DELETE FROM baza_lekarze WHERE 1");
-$lekarzType = 0;
+//$conn->query("DELETE FROM baza_lekarze WHERE 1");
+$lekarzType = 1;
 
-if (($handle = fopen("dane.csv", "r")) !== FALSE) {
+if (($handle = fopen("dane2.csv", "r")) !== FALSE) {
     $i = 0;
     while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
 	if($i == 0) {
