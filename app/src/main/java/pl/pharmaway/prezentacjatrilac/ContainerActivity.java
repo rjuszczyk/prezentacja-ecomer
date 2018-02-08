@@ -20,17 +20,23 @@ import static android.view.View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
 public class ContainerActivity extends AppCompatActivity {
 
     private TextureVideoView mVideoView;
+    public boolean goToSummary;
 
     public static void start(Context context, Class<? extends Fragment> page) {
+        start(context, page, false);
+    }
+
+    public static void start(Context context, Class<? extends Fragment> page, boolean goToSummary) {
         Intent intent = new Intent(context, ContainerActivity.class);
         intent.putExtra("page", page);
+        intent.putExtra("goToSummary", goToSummary);
         context.startActivity(intent);
     }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        goToSummary = getIntent().getBooleanExtra("goToSummary", false);
         getWindow().getDecorView().setSystemUiVisibility(
                 SYSTEM_UI_FLAG_IMMERSIVE_STICKY |
                         SYSTEM_UI_FLAG_FULLSCREEN |

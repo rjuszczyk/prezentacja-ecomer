@@ -25,7 +25,6 @@ public class Page2 extends FooterActivity {
             public void onClick(View view) {
                 firstChoice.setFirstChoice("skład");
                 startActivity(Page3.class);
-
             }
         });
 
@@ -61,7 +60,7 @@ public class Page2 extends FooterActivity {
     }
 
     private void startActivity(Class<? extends Fragment> activityClass) {
-        ContainerActivity.start(this, activityClass);
+        ContainerActivity.start(this, activityClass, true);
     }
 
     @Override

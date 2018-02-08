@@ -78,8 +78,13 @@ public abstract class FooterFragment extends Fragment {
     }
 
     protected void onNextClicked() {
+        Fragment nextFragment;
+        if(isGoToSummary()) {
+            nextFragment = new Page8();
+        } else {
+            nextFragment = getNextFragment();
+        }
 
-        Fragment nextFragment = getNextFragment();
         if(nextFragment != null) {
             getActivity()
                     .getSupportFragmentManager()
@@ -91,6 +96,10 @@ public abstract class FooterFragment extends Fragment {
             Intent intent = new Intent(getActivity(), FormActivity.class);
             getActivity().startActivity(intent);
         }
+    }
+
+    public boolean isGoToSummary() {
+        return ((ContainerActivity)getActivity()).goToSummary;
     }
 
     protected void onPrevClicked() {
