@@ -65,7 +65,11 @@ public class Page7 extends FooterFragment {
             );
         }
     }
-    
+
+    @Override
+    public boolean isGoToSummary() {
+        return false;
+    }
 
     @Override
     protected int getLayoutResourceId() {

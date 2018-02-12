@@ -32,6 +32,11 @@ public class Page4 extends FooterFragment {
     }
 
     @Override
+    public boolean isGoToSummary() {
+        return false;
+    }
+
+    @Override
     protected int getLayoutResourceId() {
         return R.layout.page4;
     }

@@ -32,7 +32,6 @@ public class Page5 extends FooterFragment {
             );
         }
     }
-    
 
     @Override
     protected int getLayoutResourceId() {

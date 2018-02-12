@@ -103,7 +103,11 @@ public abstract class FooterFragment extends Fragment {
     }
 
     protected void onPrevClicked() {
-        getActivity().onBackPressed();
+        if(((ContainerActivity)getActivity()).goToSummary) {
+            getActivity().finish();
+        } else {
+            getActivity().onBackPressed();
+        }
     }
 
     protected long getDelay() {
